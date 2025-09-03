@@ -1,0 +1,10 @@
+{
+  "name": "bookingApplication-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/bookingApplication-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["bookingApplication"],
+  "// targets": "to see all targets run: nx show project bookingApplication-e2e --web",
+  "targets": {}
+}
