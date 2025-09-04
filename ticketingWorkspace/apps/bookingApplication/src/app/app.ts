@@ -4,9 +4,10 @@ import { NxWelcome } from './nx-welcome';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Header, Footer} from '@ticketing-workspace/angularLib'
 
 @Component({
-  imports: [RouterModule, FormsModule, CommonModule],
+  imports: [RouterModule, FormsModule, CommonModule, Header, Footer],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',

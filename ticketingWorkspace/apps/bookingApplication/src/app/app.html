@@ -1,5 +1,6 @@
 <!-- <app-nx-welcome></app-nx-welcome> -->
 <router-outlet></router-outlet>
+<lib-header/>
 <h1>Book Ticket</h1>
 <form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
   <label>
@@ -29,3 +30,4 @@
     {{ booking.name }} - {{ booking.event }} on {{ booking.date }} - Status: {{booking.status}}
   </li>
 </ul>
+<lib-footer/>
