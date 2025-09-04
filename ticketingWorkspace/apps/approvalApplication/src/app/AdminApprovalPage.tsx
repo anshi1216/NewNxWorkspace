@@ -17,7 +17,7 @@ const AdminApprovalPage = () => {
   const fetchPendingTickets = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:4201/tickets?status=pending');
+      const response = await fetch('http://localhost:3000/api/tickets?status=pending');
       if (!response.ok) throw new Error('Failed to fetch tickets');
       const data = await response.json();
       setTickets(data);
@@ -37,7 +37,7 @@ const AdminApprovalPage = () => {
     try {
       const ticketToUpdate = tickets.find(t => t.id === ticketId);
       const updatedTicket = { ...ticketToUpdate, status: 'approved' };
-      const response = await fetch(`http://localhost:4201/tickets/${ticketId}`, {
+      const response = await fetch(`http://localhost:3000/api/tickets/${ticketId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedTicket),

@@ -26,6 +26,6 @@
 <h2>Booking History</h2>
 <ul>
   <li *ngFor="let booking of bookings">
-    {{ booking.name }} - {{ booking.event }} on {{ booking.date }}
+    {{ booking.name }} - {{ booking.event }} on {{ booking.date }} - Status: {{booking.status}}
   </li>
 </ul>

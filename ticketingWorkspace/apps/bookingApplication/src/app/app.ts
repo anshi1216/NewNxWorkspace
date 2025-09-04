@@ -16,7 +16,7 @@ export class App {
   booking = { name: '', event: '', date: '' };
   successMessage = '';
   bookings: any[] = [];
-  apiUrl = 'http://localhost:3000/bookings'; 
+  apiUrl = 'http://localhost:3000/api/tickets'; 
 
   constructor(private http: HttpClient) {}
 
