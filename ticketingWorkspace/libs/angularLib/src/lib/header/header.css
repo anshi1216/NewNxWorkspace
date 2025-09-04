@@ -6,6 +6,9 @@ header {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 0 0 15px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 header h1 {
@@ -24,7 +27,7 @@ header span {
 }
 
 header button {
-    background-color: #072902;
+    background-color: #1a98e2;
     border: none;
     color: white;
     padding: 10px 25px;

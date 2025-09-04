@@ -51,50 +51,57 @@ const AdminApprovalPage = () => {
   };
 
   return (
-    <div className="page-container">
-      <h1>Pending Ticket Approvals 🎟️</h1>
-      
-      {loading && <p>Loading tickets...</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {tickets.length === 0 && !loading && <p>No pending approvals</p>}
+    
+  <div className={styles['page-container']}>
+    <h1>Pending Ticket Approvals 🎟️</h1>
 
-      {tickets.length > 0 && (
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Ticket ID</th>
-              <th>User Name</th>
-              <th>Date</th>
-              <th>Event</th>
-              <th>Status</th>
-              <th>Action</th>
-               </tr>
-          </thead>
-          <tbody>
-            {tickets.map((ticket) => (
-              <tr key={ticket.id}>
-                <td>#{ticket.id}</td>
-                <td>{ticket.name}</td>
-                <td>{ticket.date}</td>
-                <td>{ticket.event}</td>
-                <td className={ticket.status === 'pending' ? 'status-pending' : 'status-approved'}>
-                  {ticket.status}
-                </td>
-                <td>
-                  <button 
-                    className="button-approve" 
-                    onClick={() => approveTicket(ticket.id)}
-                  >
-                    Approve ✅
-                  </button>
-                   </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </div>
-  );
+    {loading && <p>Loading tickets...</p>}
+    {error && <p style={{ color: 'red' }}>{error}</p>}
+    {tickets.length === 0 && !loading && <p>No pending approvals</p>}
+
+    {tickets.length > 0 && (
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>Ticket ID</th>
+            <th>User Name</th>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tickets.map((ticket) => (
+            <tr key={ticket.id}>
+              <td>#{ticket.id}</td>
+              <td>{ticket.name}</td>
+              <td>{ticket.date}</td>
+              <td>{ticket.event}</td>
+              <td
+                className={
+                  ticket.status === 'pending'
+                    ? styles['status-pending']
+                    : styles['status-approved']
+                }
+              >
+                {ticket.status}
+              </td>
+              <td>
+                <button
+                  className={styles['button-approve']}
+                  onClick={() => approveTicket(ticket.id)}
+                >
+                  Approve ✅
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )}
+  </div>
+);  
 };
 
 export default AdminApprovalPage;
