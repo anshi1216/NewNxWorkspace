@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styles from './AdminApprovalPage.module.scss';
 
 interface Ticket {
   id: number;
@@ -50,38 +51,48 @@ const AdminApprovalPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Pending Ticket Approvals</h1>
+    <div className="page-container">
+      <h1>Pending Ticket Approvals 🎟️</h1>
+      
+      {loading && <p>Loading tickets...</p>}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {tickets.length === 0 && !loading && <p>No pending approvals</p>}
 
-      {loading && <p className="text-center text-gray-600">Loading tickets...</p>}
-      {error && <p className="text-center text-red-500">{error}</p>}
-
-      {tickets.length === 0 && !loading && (
-        <p className="text-center text-gray-700">No pending approvals</p>
+      {tickets.length > 0 && (
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Ticket ID</th>
+              <th>User Name</th>
+              <th>Date</th>
+              <th>Event</th>
+              <th>Status</th>
+              <th>Action</th>
+               </tr>
+          </thead>
+          <tbody>
+            {tickets.map((ticket) => (
+              <tr key={ticket.id}>
+                <td>#{ticket.id}</td>
+                <td>{ticket.name}</td>
+                <td>{ticket.date}</td>
+                <td>{ticket.event}</td>
+                <td className={ticket.status === 'pending' ? 'status-pending' : 'status-approved'}>
+                  {ticket.status}
+                </td>
+                <td>
+                  <button 
+                    className="button-approve" 
+                    onClick={() => approveTicket(ticket.id)}
+                  >
+                    Approve ✅
+                  </button>
+                   </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
-
-      <div className="max-w-4xl mx-auto space-y-4">
-        {tickets.map(ticket => (
-          <div
-            key={ticket.id}
-            className="bg-white p-6 rounded-lg shadow-md flex justify-between items-center"
-          >
-            <div>
-              <p className="font-semibold text-lg text-gray-900">Ticket #{ticket.id}</p>
-              <p className="text-sm text-gray-500">User ID: {ticket.name}</p>
-              <p className="text-gray-700">Date: {ticket.date}</p>              
-              <p className="text-sm text-gray-500">Event: {ticket.event}</p>
-              <p className="text-sm text-gray-500">Status: {ticket.status}</p>
-            </div>
-            <button
-              onClick={() => approveTicket(ticket.id)}
-              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
-            >
-              Approve
-            </button>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
