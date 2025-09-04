@@ -1,0 +1,65 @@
+form {
+  margin: auto;
+  background: #f9f9f9;
+  padding: 24px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="date"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:disabled {
+  background: #90caf9;
+  cursor: not-allowed;
+}
+
+h1, h2 {
+  color: #1976d2;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #e3f2fd;
+  margin-bottom: 8px;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+div[ngIf] {
+  margin-top: 16px;
+  color: #388e3c;
+  font-weight: 500;
+}
