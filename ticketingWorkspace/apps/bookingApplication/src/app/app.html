@@ -1,7 +1,7 @@
 <!-- <app-nx-welcome></app-nx-welcome> -->
 <router-outlet></router-outlet>
 <lib-header/>
-<h1>Book Ticket</h1>
+<h1 class="text-6xl text-purple-600">Book Ticket</h1>
 <form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
   <label>
     Name:
@@ -24,7 +24,7 @@
 
 <hr />
 
-<h2>Booking History</h2>
+<h2 class="text-4xl text-gray-600">Booking History</h2>
 <ul>
   <li *ngFor="let booking of bookings">
     {{ booking.name }} - {{ booking.event }} on {{ booking.date }} - Status: {{booking.status}}

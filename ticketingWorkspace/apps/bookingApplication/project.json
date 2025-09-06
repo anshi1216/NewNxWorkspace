@@ -19,7 +19,8 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/bookingApplication/public"
+            "input": "libs/shared-utilities/src/lib/assets",
+            "output": "/assets/"
           }
         ],
         "styles": ["apps/bookingApplication/src/styles.scss"]
