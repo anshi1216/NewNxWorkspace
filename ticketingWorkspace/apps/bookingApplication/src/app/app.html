@@ -1,2 +1,33 @@
-<app-nx-welcome></app-nx-welcome>
+<!-- <app-nx-welcome></app-nx-welcome> -->
 <router-outlet></router-outlet>
+<lib-header/>
+<h1 class="text-6xl text-purple-600">Book Ticket</h1>
+<form (ngSubmit)="onSubmit()" #bookingForm="ngForm">
+  <label>
+    Name:
+    <input type="text" name="name" [(ngModel)]="booking.name" required />
+  </label>
+  <br />
+  <label>
+    Event:
+    <input type="text" name="event" [(ngModel)]="booking.event" required />
+  </label>
+  <br />
+  <label>
+    Date:
+    <input type="date" name="date" [(ngModel)]="booking.date" required />
+  </label>
+  <br />
+  <button type="submit" [disabled]="bookingForm.invalid">Book Ticket</button>
+</form>
+<div *ngIf="successMessage">{{ successMessage }}</div>
+
+<hr />
+
+<h2 class="text-4xl text-gray-600">Booking History</h2>
+<ul>
+  <li *ngFor="let booking of bookings">
+    {{ booking.name }} - {{ booking.event }} on {{ booking.date }} - Status: {{booking.status}}
+  </li>
+</ul>
+<lib-footer/>

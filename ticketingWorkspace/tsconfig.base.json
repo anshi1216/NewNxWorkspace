@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ticketing-workspace/angularLib": ["libs/angularLib/src/index.ts"],
+      "@ticketing-workspace/reactLib": ["libs/reactLib/src/index.ts"],
+      "@ticketing-workspace/shared-utilities": [
+        "libs/shared-utilities/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
